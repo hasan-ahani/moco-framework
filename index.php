@@ -10,8 +10,8 @@ defined( 'ABSPATH' ) or exit();
 
 
 define('MOCO_FRAMEWORK_VER', '1.0.0');
-define('MOCO_FRAMEWORK_DIR', __DIR__);
-define('MOCO_FRAMEWORK_CORE', MOCO_FRAMEWORK_DIR . '/Core');
+define('MOCO_FRAMEWORK_DIR', dirname( __FILE__ ) . '/');
+define('MOCO_FRAMEWORK_CORE', MOCO_FRAMEWORK_DIR . 'Core');
 
 
 spl_autoload_register(
@@ -29,4 +29,3 @@ spl_autoload_register(
 
 global $moco_framework;
 $moco_framework = new \MocoFramework\Loader();
-

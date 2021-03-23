@@ -29,7 +29,7 @@ class Option
 			'page_title'    => __('Moco Setting'),
 			'menu_title'    => __('Moco Setting'),
 			'capability'    => 'manage_options',
-			'menu_slug'     => 'factshop-options',
+			'menu_slug'     => 'moco-options',
 			'position'      => 99,
 			'sections'      => []
 		];
@@ -37,11 +37,24 @@ class Option
 
 		add_action( 'admin_menu', array( $this , 'setupPage') );
 		add_action( 'admin_enqueue_scripts', array( $this , 'enqueue') );
+		add_filter( 'admin_body_class', array( $this , 'bodyClass') );
+	}
+	
+	public function bodyClass($class)
+	{
+		$class = explode(' ', $class);
+		
+		$class = array_merge($class, [
+			'has-moco-framework',
+		]);
+		
+		return implode(' ', array_unique($class));
 	}
 	
 	public function enqueue()
 	{
-		wp_enqueue_style( 'custom_wp_admin_css' );
+		wp_enqueue_style( 'moco-framework' );
+		wp_enqueue_script( 'moco-framework' );
 	}
 	
 	
