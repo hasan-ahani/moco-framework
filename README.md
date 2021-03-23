@@ -1,2 +1,2 @@
-# moco-framework
+# Moco Framework
 Wordpress Development Framework Theme &amp; Plugin Options
