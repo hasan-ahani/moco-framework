@@ -51,10 +51,6 @@ abstract class Field
 		return isset($this->debug) && $this->debug == true;
 	}
 	
-	public function getDebug()
-	{
-	
-	}
 	
 	/**
 	 * @param $name
@@ -109,6 +105,9 @@ abstract class Field
 	}
 	
 	
+	/**
+	 * debug
+	 */
 	public function __debugInfo()
 	{
 		foreach($this->data as $key => $value){
@@ -133,6 +132,12 @@ abstract class Field
   
 	}
 	
+	/**
+	 * @param       $inside
+	 * @param array $attr
+	 *
+	 * @return string
+	 */
 	public function controlWrapper($inside, $attr = array())
 	{
 		$attribute = '';
@@ -145,10 +150,6 @@ abstract class Field
 		return '<div '. $attribute . '>' . $inside . '</div>';
 	}
 	
-	protected function dom()
-	{
-		return new \DOMDocument();
-	}
 	
 	
 	
