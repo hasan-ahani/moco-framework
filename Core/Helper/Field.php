@@ -125,7 +125,7 @@ abstract class Field
 		ob_start();
 		$this->core->view('field', [
 			'field'         => &$this,
-			'control'       => $this->render(),
+			'control'       => $this->controlWrapper($this->render()),
 			
 		]);
 		$html = ob_get_clean();
