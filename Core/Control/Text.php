@@ -20,7 +20,20 @@ class Text extends Field
 	 */
 	public function render()
 	{
-		$el = "<input id='{$this->id}' type='text' class='mc-control' name='moco-field[{$this->id}]'  />";
-		return $this->controlWrapper($el);
+		$class = isset($this->class) ? 'mc-control ' . $this->class : 'mc-control';
+		$min = isset($this->min) ? 'minlength="' . $this->min . '"' : null;
+		$max = isset($this->max) ? 'maxlength="' . $this->max . '"' : null;
+		$required = isset($this->required) ? 'required' : null;
+		
+		$el = "<input
+				id='{$this->id}'
+				class='{$class}'
+				name='{$this->id}'
+				type='text'
+				$min
+				$max
+				$required
+				/>";
+		return $el;
 	}
 }
