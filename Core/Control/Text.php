@@ -20,14 +20,13 @@ class Text extends Field
 	 */
 	public function render()
 	{
-		$class = isset($this->class) ? 'mc-control ' . $this->class : 'mc-control';
 		$min = isset($this->min) ? 'minlength="' . $this->min . '"' : null;
 		$max = isset($this->max) ? 'maxlength="' . $this->max . '"' : null;
 		$required = isset($this->required) ? 'required' : null;
 		
 		$el = "<input
 				id='{$this->id}'
-				class='{$class}'
+				class='{$this->getClass()}'
 				name='{$this->id}'
 				type='text'
 				$min
