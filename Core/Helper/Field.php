@@ -150,8 +150,15 @@ abstract class Field
 		return '<div '. $attribute . '>' . $inside . '</div>';
 	}
 	
-	
-	
+	/**
+	 * @param string $default
+	 *
+	 * @return string
+	 */
+	public function getClass($default = 'mc-control')
+	{
+		return isset($this->class) ? $default . ' ' . $this->class : $default;
+	}
 	
 	/**
 	 * @return string
