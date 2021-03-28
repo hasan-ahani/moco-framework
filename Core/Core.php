@@ -13,9 +13,9 @@ defined( 'ABSPATH' ) or exit();
 class Core
 {
 	
-	public function option($option)
+	public function option()
 	{
-		return new Option($option);
+		return new Option();
 	}
 	
 	public function view($slug, $params = array())
@@ -23,16 +23,14 @@ class Core
 		$file = MOCO_FRAMEWORK_DIR . '/Core/View/' . $slug . '.php';
 		
 		if( file_exists( $file ) ){
+			
 			if( is_array( $params ) && ! empty( $params ) ){
 				extract( $params );
 			}
-			ob_start();
 			
 			if ( file_exists( $file ) ){
 				include $file;
 			}
-			
-			return ob_get_clean();
 		}
 	}
 	
@@ -47,6 +45,21 @@ class Core
 		
 		wp_register_script( 'moco-framework', $this->getPath()['uri'] . 'assets/js/app.bundle.js', array('jquery'), MOCO_FRAMEWORK_VER);
 
+	}
+	
+	/**
+	 * @param array $args
+	 * @param bool  $json
+	 *
+	 * @return array
+	 */
+	public function getCodeEditorConfig($args = [], $json = false)
+	{
+		$arr =  [ 'codeEditor' => wp_enqueue_code_editor($args) ];
+		if($json){
+			return json_encode($arr);
+		}
+		return $arr;
 	}
 	
 	public function getPath()

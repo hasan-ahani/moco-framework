@@ -12,5 +12,8 @@
             "role": "Developer"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-json": "*",
+      "ext-dom": "*"
+    }
 }
