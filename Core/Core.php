@@ -13,11 +13,18 @@ defined( 'ABSPATH' ) or exit();
 class Core
 {
 	
+	/**
+	 * @return Option
+	 */
 	public function option()
 	{
 		return new Option();
 	}
 	
+	/**
+	 * @param       $slug
+	 * @param array $params
+	 */
 	public function view($slug, $params = array())
 	{
 		$file = MOCO_FRAMEWORK_DIR . '/Core/View/' . $slug . '.php';
@@ -44,7 +51,13 @@ class Core
 		}
 		
 		wp_register_script( 'moco-framework', $this->getPath()['uri'] . 'assets/js/app.bundle.js', array('jquery'), MOCO_FRAMEWORK_VER);
-
+		wp_localize_script( 'moco-framework', 'moco',
+			[
+				'ajax_url' => admin_url( 'admin-ajax.php')
+			]
+		);
+		
+		
 	}
 	
 	/**
@@ -57,7 +70,7 @@ class Core
 	{
 		$arr =  [ 'codeEditor' => wp_enqueue_code_editor($args) ];
 		if($json){
-			return json_encode($arr);
+			return wp_json_encode($arr);
 		}
 		return $arr;
 	}
@@ -79,4 +92,5 @@ class Core
 			'uri'      => $uri
 		) );
 	}
+	
 }

@@ -20,7 +20,7 @@ else :
 <div class="form-inline">
 	<div class="form-label">
 	        <label for="<?php echo $field->id;?>"><?php echo isset($field->title) ? $field->title : null;?></label>
-	        <small><?php echo isset($field->desc) ? $field->desc : null; ?></small>
+	        <?php echo isset($field->desc) ? '<small>' . $field->desc . '</small>': null; ?>
 	
 	</div>
 	<div class="form-control-box">

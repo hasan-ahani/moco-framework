@@ -55,6 +55,22 @@ class Option
 	private $core;
 	
 	
+	
+	private $prefix = 'moco_option';
+	
+	/**
+	 * controls values
+	 * @var array
+	 */
+	private $_options = [];
+	
+	/**
+	 * default controls values
+	 * @var array
+	 */
+	private $_default = [];
+	
+	
 	/**
 	 * Option constructor.
 	 *
@@ -77,6 +93,32 @@ class Option
 			add_filter( 'admin_body_class', array( $this , 'bodyClass') );
 		}
 		
+		
+		add_action('wp_ajax_' . $this->getAction(), function(){
+			$this->save();
+		});
+		
+		$options = $this->getWpOption();
+		if ($options){
+			$this->_options = $options;
+		}
+	}
+	
+	/**
+	 * @return mixed|void
+	 */
+	protected function getWpOption()
+	{
+		return get_option($this->getAction());
+	}
+	
+	/**
+	 * get ajax action id
+	 * @return string
+	 */
+	public function getAction()
+	{
+		return 'moco_option_' . $this->slug;
 	}
 	
 	/**
@@ -210,17 +252,19 @@ class Option
 	public function options( $options )
 	{
 		$this->options = $options;
-		$this->validOptions();
+		$this->initOptions();
 		return $this;
 	}
+	
 	
 	/**
 	 * check valid options
 	 */
-	protected function validOptions()
+	private function initOptions()
 	{
 		if(!empty($this->options)){
 			$ids = [];
+			$controlsDefault = [];
 			foreach ($this->options as $index => $option){
 				if(isset($option['controls'])){
 					foreach ( $option['controls']  as $key => $control )
@@ -233,14 +277,31 @@ class Option
 							$this->options[$index]['controls'][$key]['error'] = __('id is not unique!');
 							continue;
 						}
+						if(isset($this->_options[$control['id']])){
+							$this->options[$index]['controls'][$key]['value'] = $this->_options[$control['id']];
+						}
+						if(isset($control['default'])){
+							$controlsDefault[$control['id']] = $control['default'];
+						}
 						array_push($ids, $control['id']);
 					}
 				}
 			}
+			
+			$this->_default = $controlsDefault;
+			if(!$this->getWpOption()){
+				add_option( $this->getAction() , $controlsDefault, '',  'yes' );
+			}
 		}
+		
 		
 	}
 	
+	/**
+	 * @param $class
+	 *
+	 * @return string
+	 */
 	public function bodyClass($class)
 	{
 		$class = explode(' ', $class);
@@ -255,10 +316,13 @@ class Option
 	{
 		wp_enqueue_media();
 		
-		wp_localize_script('jquery', 'mocoCodeEditor', $this->core->getCodeEditorConfig(['type' => 'text/css']));
-		
 		wp_enqueue_script('wp-theme-plugin-editor');
 		wp_enqueue_style('wp-codemirror');
+		
+//		wp_enqueue_script( 'csslint' );
+//		wp_enqueue_script( 'jshint' );
+//		wp_enqueue_script( 'jsonlint' );
+		
 		wp_enqueue_style( 'moco-framework' );
 		wp_enqueue_script( 'moco-framework' );
 	}
@@ -312,7 +376,6 @@ class Option
 								$class->set($control);
 								$this->options[$opKey]['controls'][$key]['render'] = $class;
 							}
-							//$class = new \ReflectionClass($control['type']);
 							
 						}
 					}
@@ -335,5 +398,28 @@ class Option
 				'option' => $this
 			]
 		);
+	}
+	
+	public function save()
+	{
+		if ( !wp_verify_nonce( $_REQUEST['nonce'], $this->getAction())) {
+			exit("invalid access request!");
+		}
+	
+		$res = [
+			'success' => false,
+			'message' => '',
+		];
+		
+		if(!isset($_REQUEST['moco-option'])){
+			$res['message'] = __('invalid request');
+		}else{
+			update_option($this->getAction(), $_REQUEST['moco-option']);
+			$res['success'] = true;
+			$res['message'] = __('Settings saved successfully ');
+		}
+		
+		echo wp_json_encode($res);
+		die();
 	}
 }

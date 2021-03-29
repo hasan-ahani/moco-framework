@@ -26,10 +26,28 @@ module.exports = {
     },
     optionForm: function () {
         $('#moco-framework form').submit(function (e) {
-            const t = $(this),
+            let   t = $(this),
+                    btn = $('.btn-submit', t),
                     data = t.serialize();
+
             e.preventDefault();
-            console.log(data)
+            $.ajax({
+                type : "post",
+                dataType : "json",
+                url : moco.ajax_url,
+                data : data,
+                beforeSend: function() {
+                    $.Toasted.info('loading ...')
+                },
+                success: function(response) {
+                    $.Toasted.clear();
+                    if (response.success){
+                        $.Toasted.success(response.message)
+                    }else{
+                        $.Toasted.error(response.message)
+                    }
+                }
+            })
         })
     }
 

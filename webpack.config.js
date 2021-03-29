@@ -21,7 +21,7 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery',
 			'window.jQuery': 'jquery',
-		} ),
+		} )
 	],
 	mode: 'development',
 	devtool: 'source-map',

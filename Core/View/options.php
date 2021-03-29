@@ -32,7 +32,11 @@ $options = $option->getOptions();
                 <li>
                     <input type="text" class="mc-control" placeholder="search ...">
                 </li>
-                <li><button class="mc-btn btn-success" type="submit">ذخیره</button> </li>
+                <li>
+                    <input type="hidden" name="nonce" value="<?php echo wp_create_nonce($option->getAction());?>">
+                    <input type="hidden" name="action" value="<?php echo $option->getAction();?>">
+                    <button class="mc-btn btn-success btn-submit" type="submit">ذخیره</button>
+                </li>
             </ul>
         </header>
         <main>

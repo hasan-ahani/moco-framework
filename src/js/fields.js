@@ -69,9 +69,12 @@ module.exports = {
         })
     },
     codeMirror: function () {
-        let selector            =  $('.moco-code-editor'),
-            settings            =  selector.data('settings');
-        wp.codeEditor.initialize(selector, settings);
+        $('#moco-framework .moco-code-editor').each(function (index, element) {
+            let selector            =  $(element),
+                settings            =  selector.data('settings');
+            wp.codeEditor.initialize(selector, settings);
+        });
+
     },
 
 };

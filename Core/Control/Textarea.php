@@ -12,7 +12,7 @@ use MocoFramework\Helper\Field;
  */
 defined( 'ABSPATH' ) or exit();
 
-class Text extends Field
+class Textarea extends Field
 {
 	
 	/**
@@ -22,19 +22,21 @@ class Text extends Field
 	{
 		$min = isset($this->min) ? 'minlength="' . $this->min . '"' : null;
 		$max = isset($this->max) ? 'maxlength="' . $this->max . '"' : null;
-		$required = isset($this->required) ? 'required' : null;
+		$row = isset($this->rows) ? 'rows="' . $this->rows . '"' : null;
 		
-		$el = "<input
-				id='{$this->id}'
-				class='{$this->getClass()}'
-				{$this->getName()}
-				{$this->placeholder()}
-				type='text'
-				value='{$this->value}'
-				$min
-				$max
-				$required
-				/>";
+		
+		$el = "<textarea
+						id='{$this->id}'
+						class='{$this->getClass()}'
+						{$min}
+						{$max}
+						{$this->required()}
+						{$row}
+						{$this->getName()}
+						{$this->placeholder()}
+						>{$this->value}</textarea>";
+		
 		return $el;
+		
 	}
 }

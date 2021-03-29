@@ -20,7 +20,7 @@ abstract class Field
 	/**
 	 * @var \MocoFramework\Loader
 	 */
-	private $core;
+	protected $core;
 	
 	private $prefix = 'moco-field-';
 	
@@ -38,6 +38,8 @@ abstract class Field
 		}
 		
 	}
+	
+	
 	
 	protected function strGenerate($length = 6) {
 		return substr(str_shuffle(str_repeat($x='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
@@ -159,6 +161,39 @@ abstract class Field
 	{
 		return isset($this->class) ? $default . ' ' . $this->class : $default;
 	}
+	
+	/**
+	 * @return string|null
+	 */
+	public function required()
+	{
+		return isset($this->required) ? 'required' : null;
+	}
+	/**
+	 * @return string|null
+	 */
+	public function placeholder()
+	{
+		return isset($this->placeholder) ? 'placeholder="' . $this->placeholder . '"' : null;
+	}
+	
+	/**
+	 * @param bool $attr
+	 *
+	 * @return string|null
+	 */
+	public function getName($attr = true)
+	{
+		if(isset($this->id)) {
+			if($attr){
+				return 'name="moco-option[' . $this->id . ']"';
+			}else{
+				return 'moco-option[' . $this->id . ']';
+			}
+		}
+		return null;
+	}
+	
 	
 	/**
 	 * @return string
