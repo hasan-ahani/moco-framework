@@ -7,7 +7,7 @@ use MocoFramework\Helper\Section;
 /**
  * @package     moco-framework
  * @author      Hasan Ahani
- * @copyright   https://wptool.co
+ * @copyright   https://wpdv.ir
  * @license     ISC
  * @version     1.0.0
  */
