@@ -1,9 +1,11 @@
 {
     "name": "hasanart/moco-framework",
+    "version": "0.1.0",
     "description": "wordpress development framework",
-    "keywords": ["wordpress","framework","coco","theme","options","metabox"],
+    "keywords": ["wordpress","framework","moco","theme","options","metabox","wp-option"],
     "homepage": "http://wpdv.ir/",
     "type": "library",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Hasan Ahani",
