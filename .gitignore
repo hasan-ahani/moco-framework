@@ -1,2 +1,10 @@
 /node_modules/
-/.idea/ 
+/.idea/
+/gulpfile.js
+/package.json
+/webpack.config.js
+/package-lock.json
+/src/
+/assets/css/app.css.map
+/assets/css/app-rtl.css.map
+/assets/js/app.bundle.js.map
