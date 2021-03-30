@@ -2,16 +2,19 @@
     "name": "hasanart/moco-framework",
     "description": "wordpress development framework",
     "keywords": ["wordpress","framework","coco","theme","options","metabox"],
-    "homepage": "https://wptool.co",
+    "homepage": "http://wpdv.ir/",
     "type": "library",
     "authors": [
         {
             "name": "Hasan Ahani",
             "email": "hasanahani.ir@gmail.com",
-            "homepage": "http://wptool.co/hasan-ahani",
+            "homepage": "http://wpdv.ir/",
             "role": "Developer"
         }
     ],
+    "autoload": {
+        "files": ["index.php"]
+    },
     "require": {
       "ext-json": "*",
       "ext-dom": "*"
