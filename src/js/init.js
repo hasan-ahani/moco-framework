@@ -30,6 +30,7 @@ module.exports = {
                     btn = $('.btn-submit', t),
                     data = t.serialize();
 
+
             e.preventDefault();
             $.ajax({
                 type : "post",
