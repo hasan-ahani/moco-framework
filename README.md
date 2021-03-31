@@ -113,5 +113,7 @@ $moco_framework->option()
 - [x] Switch
 - [ ] Select2
 - [ ] Draggable
+- [ ] Color Picker
+- [ ] Date Picker
 
 
