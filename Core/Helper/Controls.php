@@ -2,6 +2,7 @@
 namespace MocoFramework\Helper;
 
 use MocoFramework\Control\CodeEditor;
+use MocoFramework\Control\Select;
 use MocoFramework\Control\SwitchBox;
 use MocoFramework\Control\Text;
 use MocoFramework\Control\Textarea;
@@ -29,4 +30,5 @@ class Controls
 	const Checkbox      = Checkbox::class;
 	const Switch        = SwitchBox::class;
 	const Url           = Url::class;
+	const Select        = Select::class;
 }
