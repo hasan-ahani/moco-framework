@@ -315,7 +315,7 @@ class Option
 	public function enqueue()
 	{
 		wp_enqueue_media();
-		
+		wp_enqueue_editor();
 		wp_enqueue_script('wp-theme-plugin-editor');
 		wp_enqueue_style('wp-codemirror');
 		

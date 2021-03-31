@@ -21,19 +21,22 @@ class WpEditor extends Field
 	public function render()
 	{
 		
-		$teeny              = isset($this->teeny) ? (bool) $this->teeny : false;
-		$media_buttons      = isset($this->media_buttons) ? (bool) $this->media_buttons : false;
+		$tiny              = isset($this->tinymce) ? (bool) $this->tinymce : true;
+		$media_buttons      = isset($this->media_buttons) ? (bool) $this->media_buttons : true;
 		$height             = isset($this->height) ? (int) $this->height : 160;
 		
-		$settings = array(
-            'teeny'                 => $teeny,
-            'editor_height'         => $height,
-            'quicktags'             => array( 'buttons' => 'strong,em,del,close' ),
-            'media_buttons'         => $media_buttons
-		);
+		
 
 		ob_start();
+		
+		$settings = array(
+			'tinymce'               => $tiny,
+			'editor_height'         => $height,
+			'media_buttons'         => $media_buttons
+		);
 		wp_editor($this->value, $this->getName(false), $settings);
-		return ob_get_clean();
+		$editor_contents                = ob_get_contents();
+		ob_get_clean();
+		return $editor_contents;
 	}
 }
