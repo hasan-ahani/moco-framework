@@ -32,10 +32,10 @@ class Radio extends Field
 		foreach ($this->options as $key => $val){
 			$el .= '<label class="mc-radio">';
 			$checked = null;
-			if(isset($this->value)){
-				$checked = $this->value == $key ? 'checked' : null;
-			}elseif(isset($this->default)){
-				$checked = $this->default == $key ? 'checked' : null;
+			if(isset($this->value) && $this->value == $key){
+				$checked =  'checked';
+			}elseif(isset($this->default) && $this->default == $key){
+				$checked =  'checked';
 			}
 			$el .= "<input
 						type='radio'
