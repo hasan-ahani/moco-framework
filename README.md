@@ -23,6 +23,12 @@ download last release and copy into your theme
 include('moco-framework/index.php');
 ```
 
+
+### use with install plugin
+download last release and copy into wp-content/plugins and active plugin in plugin list
+
+
+### use framework
 To use the Moco Framework
 
 ```php
@@ -97,13 +103,12 @@ $moco_framework->option()
 - [x] Textarea
 - [x] Code Editor
 - [x] Wp Editor
-- [ ] Select Media
+- [x] Radio
 - [ ] Checkbox
-- [ ] Radio
-- [ ] Switch
 - [ ] Select
+- [ ] Select Media
+- [ ] Switch
 - [ ] Select2
-- [ ] Draggable
 - [ ] Draggable
 
 
