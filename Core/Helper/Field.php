@@ -187,17 +187,19 @@ abstract class Field
 	}
 	
 	/**
-	 * @param bool $attr
+	 * @param bool   $attr
+	 *
+	 * @param string $after
 	 *
 	 * @return string|null
 	 */
-	public function getName($attr = true)
+	public function getName($attr = true, $after = '')
 	{
 		if(isset($this->id)) {
 			if($attr){
-				return 'name="moco-option[' . $this->id . ']"';
+				return 'name="moco-option[' . $this->id . ']' . $after .'"';
 			}else{
-				return 'moco-option[' . $this->id . ']';
+				return 'moco-option[' . $this->id . ']' . $after;
 			}
 		}
 		return null;
