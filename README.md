@@ -104,10 +104,10 @@ $moco_framework->option()
 - [x] Code Editor
 - [x] Wp Editor
 - [x] Radio
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] Select
-- [ ] Select Media
-- [ ] Switch
+- [x] Select Media
+- [x] Switch
 - [ ] Select2
 - [ ] Draggable
 

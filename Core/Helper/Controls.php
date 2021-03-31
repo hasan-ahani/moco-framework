@@ -8,7 +8,7 @@ use MocoFramework\Control\WpEditor;
 use MocoFramework\Control\Radio;
 use MocoFramework\Control\Checkbox;
 //use MocoFramework\Control\Switchs;
-//use MocoFramework\Control\Url;
+use MocoFramework\Control\Url;
 //use MocoFramework\Control\CodeEditor;
 //use MocoFramework\Control\Notice;
 
@@ -30,6 +30,6 @@ class Controls
 	const Radio         = Radio::class;
 	const Checkbox      = Checkbox::class;
 //	const Switch        = Switchs::class;
-//	const Url           = Url::class;
+	const Url           = Url::class;
 //	const Notice        = Notice::class;
 }
