@@ -30,12 +30,12 @@ $options = $option->getOptions();
             </div>
             <ul class="header-actions">
                 <li>
-                    <input type="text" class="mc-control" placeholder="search ...">
+                    <input id="search-controls" type="text" class="mc-control" placeholder="<?php _e('search ...');?>">
                 </li>
                 <li>
                     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce($option->getAction());?>">
                     <input type="hidden" name="action" value="<?php echo $option->getAction();?>">
-                    <button class="mc-btn btn-success btn-submit" type="submit">ذخیره</button>
+                    <button class="mc-btn btn-success btn-submit" type="submit"><?php _e('Save');?></button>
                 </li>
             </ul>
         </header>
@@ -83,33 +83,6 @@ $options = $option->getOptions();
                         
                     <?php endforeach; ?>
     <!--                <div class="moco-tab-content show">-->
-    <!--                    <div class="alert success">Moco Framework mtn test</div>-->
-    <!--                    <div class="alert warning">Moco Framework mtn test</div>-->
-    <!--                    <div class="alert danger">Moco Framework mtn test</div>-->
-    <!--                    <div class="form-inline">-->
-    <!--                        <div class="form-label">-->
-    <!--                            <label for="test">input test</label>-->
-    <!--                            <small>input test</small>-->
-    <!--                        </div>-->
-    <!--                        <div class="form-control-box">-->
-    <!--                            <div class="form-control">-->
-    <!--                                <input id="test" type="text" class="mc-control">-->
-    <!--                            </div>-->
-    <!--                            <small>input test</small>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="form-inline">-->
-    <!--                        <div class="form-label">-->
-    <!--                            <label for="testar">input textarea test admon goli asdw </label>-->
-    <!--                            <small>input test</small>-->
-    <!--                        </div>-->
-    <!--                        <div class="form-control-box">-->
-    <!--                            <div class="form-control">-->
-    <!--                                <textarea id="testar"  rows="6" class="mc-control"></textarea>-->
-    <!--                            </div>-->
-    <!--                            <small>input textarea</small>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
     <!--                    <div class="form-inline">-->
     <!--                        <div class="form-label">-->
     <!--                            <label for="radio">radio button</label>-->
@@ -139,21 +112,6 @@ $options = $option->getOptions();
     <!--                                    <input id="switch" type="checkbox" class="mc-control">-->
     <!--                                    <label for="switch">Toggle this switch element</label>-->
     <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="form-inline">-->
-    <!--                        <div class="form-label">-->
-    <!--                            <label for="switch">code editor</label>-->
-    <!--                        </div>-->
-    <!--                        <div class="form-control-box">-->
-    <!--                            <div class="form-control">-->
-    <!--                                <textarea class="moco-code-editor"-->
-    <!--                                          data-settings='--><?php
-    //                                          global $moco_framework;
-    //                                          echo $moco_framework->getCodeEditorConfig(['type' => 'text/css'], true);
-    //                                          ?><!--'-->
-    <!--                                ></textarea>-->
     <!--                            </div>-->
     <!--                        </div>-->
     <!--                    </div>-->
