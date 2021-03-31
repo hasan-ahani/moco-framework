@@ -2,15 +2,13 @@
 namespace MocoFramework\Helper;
 
 use MocoFramework\Control\CodeEditor;
+use MocoFramework\Control\SwitchBox;
 use MocoFramework\Control\Text;
 use MocoFramework\Control\Textarea;
 use MocoFramework\Control\WpEditor;
 use MocoFramework\Control\Radio;
 use MocoFramework\Control\Checkbox;
-//use MocoFramework\Control\Switchs;
 use MocoFramework\Control\Url;
-//use MocoFramework\Control\CodeEditor;
-//use MocoFramework\Control\Notice;
 
 /**
  * @package     moco-framework
@@ -29,7 +27,6 @@ class Controls
 	const CodeEditor    = CodeEditor::class;
 	const Radio         = Radio::class;
 	const Checkbox      = Checkbox::class;
-//	const Switch        = Switchs::class;
+	const Switch        = SwitchBox::class;
 	const Url           = Url::class;
-//	const Notice        = Notice::class;
 }
