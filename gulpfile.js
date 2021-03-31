@@ -16,7 +16,7 @@ const gulp 			= require( 'gulp' ),
 	//dev_url 		= 'http://moco.me',
 	plugins 		= [
 		autoprefixer(),
-		//cssnano(),
+		cssnano(),
 	],
 	paths 			= {
 		styles: {
