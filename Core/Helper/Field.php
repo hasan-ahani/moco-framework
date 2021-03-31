@@ -17,29 +17,38 @@ abstract class Field
 	 */
 	private $data = array();
 	
+	
 	/**
-	 * @var \MocoFramework\Loader
+	 * Field constructor.
 	 */
-	protected $core;
-	
-	private $prefix = 'moco-field-';
-	
-	
 	public function __construct()
 	{
-		global $moco_framework;
-		$this->core = $moco_framework;
 		
 		if(isset($this->id)){
 			$id = str_replace(' ', '', $this->id);
-			$this->id =  $this->prefix . strtolower($id);
+			$this->id =  $this->prefix() . strtolower($id);
 		}else{
-			$this->id =  $this->prefix . $this->strGenerate();
+			$this->id =  $this->prefix() . $this->strGenerate();
 		}
 		
 	}
 	
+	/**
+	 * @return \MocoFramework\Loader
+	 */
+	protected function core()
+	{
+		global $moco_framework;
+		return $moco_framework;
+	}
 	
+	/**
+	 * @return string
+	 */
+	protected function prefix()
+	{
+		return  'moco-field-';
+	}
 	
 	protected function strGenerate($length = 6) {
 		return substr(str_shuffle(str_repeat($x='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
@@ -124,7 +133,7 @@ abstract class Field
 	private function fieldSection()
 	{
 		ob_start();
-		$this->core->view('field', [
+		$this->core()->view('field', [
 			'field'         => &$this,
 			'control'       => $this->controlWrapper($this->render()),
 			
@@ -143,7 +152,7 @@ abstract class Field
 	public function controlWrapper($inside, $attr = array())
 	{
 		$attribute = '';
-		$class = isset($attr['class']) ?  $attr['class'] : '';
+		$class = isset($this->class) ?  $this->class : '';
 		$attr['class'] = 'form-control ' . $class ;
 		
 		foreach ($attr as $key => $val){

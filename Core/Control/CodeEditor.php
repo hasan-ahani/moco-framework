@@ -27,7 +27,7 @@ class CodeEditor extends Field
 						id='{$this->id}'
 						class='{$this->getClass('moco-code-editor')}'
 						{$this->getName()}
-						data-settings='{$this->core->getCodeEditorConfig(['type' => $mode], true)}'
+						data-settings='{$this->core()->getCodeEditorConfig(['type' => $mode], true)}'
 						>{$this->value}</textarea>";
 		
 		return $el;
