@@ -112,9 +112,10 @@
         flex: none;
       }
     }
-    &.inline label{
+    &.list label{
       display: block;
       margin-bottom: 20px;
+      width: fit-content;
     }
     label {
       margin-right: 15px;
@@ -133,5 +134,10 @@
       margin-bottom: 8px;
 
     }
+  }
+}
+.mc-radio{
+  span{
+    margin-left: 10px;
   }
 }
