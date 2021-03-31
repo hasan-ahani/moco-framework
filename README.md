@@ -89,6 +89,23 @@ $moco_framework->option()
 	->options($options);
 
 ```
+
+
+## get option value
+```php
+global $moco_framework;
+$moco_framework->getOption('moco-options', 'logo','defautl logo url' );
+```
+
+## make easy function for get yourself option
+```php
+function get_moco($option, $default = false){
+    global $moco_framework;
+    return $moco_framework->getOption('moco-options', $option, $default );
+}
+```
+
+
 ## To do Features
 
 - [x] Option Page
@@ -108,10 +125,11 @@ $moco_framework->option()
 - [x] Wp Editor
 - [x] Radio
 - [x] Checkbox
-- [ ] Select
+- [x] Select
 - [x] Select Media
 - [x] Switch
 - [ ] Select2
+- [ ] tag
 - [ ] Draggable
 - [ ] Color Picker
 - [ ] Date Picker
