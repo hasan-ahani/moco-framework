@@ -4,7 +4,7 @@ const path = require( 'path' ),
 module.exports = {
 	context: path.resolve( __dirname, 'src/js' ),
 	optimization: {
-		minimize: false
+		minimize: true
 	},
 	entry: {
 		app: [ './app.js' ],
