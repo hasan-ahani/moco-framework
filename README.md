@@ -96,6 +96,9 @@ $moco_framework->option()
 - [ ] Customize Option
 - [ ] Widget
 - [ ] Menu Option
+- [ ] Backup Options
+- [ ] Update Theme Or Plugin
+- [ ] License Theme Or Plugin
 
 ## To do Fields
 
