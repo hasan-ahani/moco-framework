@@ -22,6 +22,25 @@ class Core
 	}
 	
 	/**
+	 * @param string $slug
+	 * @param string $id
+	 * @param string|bool $default
+	 *
+	 * @return bool|mixed|string
+	 */
+	public function getOption($slug, $id, $default = false )
+	{
+		if(empty($slug) && empty($id)) return false;
+		
+		$option = get_option(MOCO_PREFIX . $slug);
+		if(is_array($option) && isset($option[$id]))
+		{
+			return $option[$id];
+		}
+		return $default;
+	}
+	
+	/**
 	 * @param       $slug
 	 * @param array $params
 	 */
