@@ -1,0 +1,14 @@
+
+.alert {
+  padding: 15px;
+  position: relative;
+  border-radius: $el-radius;
+  margin-bottom: $el-padding-y;
+
+  @each $color, $value in $theme-colors {
+    &.#{$color} {
+      background: var(--moco-#{$color}-fade);
+      color: var(--moco-#{$color}-darken);
+    }
+  }
+}

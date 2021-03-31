@@ -1,7 +1,10 @@
 # Moco Framework
 Wordpress Development Framework Theme &amp; Plugin Options
 
-## How to install
+# How to use 
+
+
+### use with composer
 
 If you wish to use this extension in a managed environment, simply install using `composer`:
 
@@ -9,12 +12,20 @@ If you wish to use this extension in a managed environment, simply install using
 composer require hasanart/moco-framework
 ```
 
+include vendor autoloader in function.php in theme or plugin
+```php
+include('vendor/autoload.php');
+```
+
+### use in your theme directory
+download last release and copy into your theme
+```php
+include('moco-framework/index.php');
+```
+
 To use the Moco Framework
 
 ```php
-// include vendor autoloader
-include('vendor/autoload.php');
-
 use MocoFramework\Helper\Controls;
 
 
@@ -72,8 +83,15 @@ $moco_framework->option()
 	->options($options);
 
 ```
+## To do Features
 
-## Todo Project
+- [x] Option Page
+- [ ] Metabox
+- [ ] Customize Option
+- [ ] Widget
+- [ ] Menu Option
+
+## To do Fields
 
 - [x] Text
 - [x] Textarea
@@ -88,10 +106,4 @@ $moco_framework->option()
 - [ ] Draggable
 - [ ] Draggable
 
-## Todo Field
 
-- [x] Option Page
-- [ ] Metabox
-- [ ] Customize Option
-- [ ] Widget
-- [ ] Menu Option

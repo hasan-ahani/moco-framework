@@ -1,0 +1,46 @@
+
+
+.mc-switch {
+  padding-left: 80px;
+  position: relative;
+  display: inline-block;
+  input{
+    display: none;
+    &:checked~label{
+      &:before{
+        background-color: var(--moco-primary);
+      } &:after{
+          background-color: var(--moco-light);
+          left: calc( 70px - 26px - 5px );
+          box-shadow: 0 0 10px rgba(black, 0.4);
+        }
+    }
+  }
+  label{
+    margin: 0;
+
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: 99;
+      transition: background-color .15s ease-in-out,left .15s ease-in-out;
+    }
+    &:before{
+      width: 70px;
+      height: 36px;
+      background-color: var(--moco-input-bag);
+      left: 0;
+      top: -5px;
+      border-radius: 12px;
+    }
+    &:after{
+      width: 26px;
+      height: 26px;
+      left: 5px;
+      top: 0;
+      border-radius: 8px;
+      background-color: var(--moco-input-bag-darken);
+    }
+  }
+}

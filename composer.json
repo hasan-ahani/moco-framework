@@ -2,8 +2,16 @@
     "name": "hasanart/moco-framework",
     "version": "0.1.0",
     "description": "wordpress development framework",
-    "keywords": ["wordpress","framework","moco","theme","options","metabox","wp-option"],
-    "homepage": "http://wpdv.ir/",
+    "keywords": [
+        "wordpress",
+        "framework",
+        "moco",
+        "theme",
+        "options",
+        "metabox",
+        "wp-option"
+    ],
+    "homepage": "http://wpdv.ir/moco-framework",
     "type": "library",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -15,11 +23,13 @@
         }
     ],
     "autoload": {
-        "files": ["index.php"]
+        "files": [
+            "index.php"
+        ]
     },
+    "minimum-stability": "dev",
     "require": {
-      "php": ">=5.3.0",
-      "ext-json": "*",
-      "ext-dom": "*"
+        "php": ">=7.0",
+        "ext-json": "*"
     }
 }

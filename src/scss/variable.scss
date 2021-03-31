@@ -1,0 +1,86 @@
+
+$el-padding-y: 16px;
+$el-padding-x: 28px;
+$el-radius: 12px;
+
+
+// Theme colors variables
+$primary-color: #7e37d8;
+$secondary-color: #fe80b2;
+$success-color: #80cf00;
+$info-color: #06b5dd;
+$warning-color: #ffc717;
+$danger-color: #fd517d;
+$dark-color: #2c323f;
+
+
+$moco-bg: #ffffff;
+$moco-card: #f0f0f1;
+$moco-text: #242934;
+$moco-secendery-text: #6e7e96;
+$moco-tertiary-text: #ACB1B8;
+$moco-accent-text: #666D7A;
+
+
+$light-color: #f8f5fd;
+$semi-dark: #aaaaaa;
+$light-semi-gray: #efefef;
+$light-gray: #e8ebf2;
+$dark-gray: #898989;
+$dark-color: #2c323f;
+$gray-60: #cccccc;
+$card-body-color: #f9f9fa;
+$transparent-color: transparent;
+$auth-bg-color: #fafafa;
+$light: #fdfeff;
+$light-text: #999;
+$light-background: #f8f4fe;
+$light-font: rgba(27, 49, 85, 0.6);
+$light-semi-font: rgba(27, 49, 85, 0.4);
+
+
+// gradient colors
+$gradient-primary: linear-gradient(to bottom right, #863ee2, #571f9e);
+$gradient-secondary: linear-gradient(to bottom right, #ff9cc3, #fd3484);
+$gradient-success: linear-gradient(to bottom right, #b9ec68, #80cf00);
+$gradient-warning: linear-gradient(to bottom right, #ffd85d, #ffc200);
+$gradient-info: linear-gradient(to bottom right, #00d2d7, #07b2dd);
+$gradient-primary-direction: linear-gradient(to right, #863ee2, #571f9e);
+$gradient-secondary-direction: linear-gradient(to right, #ff9bc3, #fe68a3);
+$gradient-danger-direction: linear-gradient(to right, #ff3f70, #f73769);
+$gradient-success-direction: linear-gradient(to right, #b9ec68, #80cf00);
+$gradient-info-direction: linear-gradient(to right, #00d2d7, #07b2dd);
+$gradient-warning-direction: linear-gradient(to right, #ffd85d, #ffc200);
+
+
+$primary-color: #7e37d8;
+$secondary-color: #fe80b2;
+$success-color: #80cf00;
+$info-color: #06b5dd;
+$warning-color: #ffc717;
+$danger-color: #fd517d;
+
+$theme-colors: (
+        'primary' : $primary-color,
+        'secondary' : $secondary-color,
+        'success' : $success-color,
+        'info' : $info-color,
+        'danger' : $danger-color,
+        'warning' : $warning-color,
+        'light' : $light-color,
+        'dark' : $dark-color,
+);
+
+
+//error input color start
+$light-body-bg-color: #f0f0f1;
+
+// dark layout variables
+$dark-body-background: #333a62;
+$dark-card-background: #2c3054;
+$dark-small-font-color: #98a6ad;
+$dark-all-font-color: rgba(255, 255, 255, 0.7);
+$light-all-font-color: rgba(255, 255, 255, 0.2);
+$sidebar-submenu-font-color: rgba(255, 255, 255, 0.7);
+$dark-border-color: #374558;
+$dark-editor-document: #2b2b2b;

@@ -1,0 +1,26 @@
+
+:root {
+  @each $color, $value in $theme-colors {
+    --moco-#{$color}: #{$value};
+    --moco-#{$color}-fade: #{rgba($value, 0.18)};
+    --moco-#{$color}-darken: #{darken($value, 8%)};
+  }
+  --moco-bag: #{$moco-bg};
+  --moco-card: #{$moco-card};
+  --moco-input-bag: #dbdfe5;
+  --moco-input-bag-darken: #{darken(#dbdfe5, 10%)};
+  --moco-text: #{$moco-text};
+  --moco-secendery-text: #{$moco-secendery-text};
+  --moco-tertiary-text: #{$moco-tertiary-text};
+  --moco-accent-text: #{$moco-accent-text};
+}
+
+[data-theme="dark"] {
+  --moco-bag: #{$dark-body-background};
+  --moco-card: #{$dark-body-background};
+  --moco-input-bag-darken: #{darken(#dbdfe5, 10%)};
+  --moco-primary-text: #FFFFFF;
+  --moco-secendery-text: #CFD2D6;
+  --moco-tertiary-text: #ACB1B8;
+  --moco-accent-text: #666D7A;
+}
