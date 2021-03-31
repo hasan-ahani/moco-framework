@@ -27,6 +27,7 @@ defined( 'ABSPATH' ) or exit();
 define('MOCO_FRAMEWORK_VER', '1.0.0');
 define('MOCO_FRAMEWORK_DIR', dirname( __FILE__ ) . '/');
 define('MOCO_FRAMEWORK_CORE', MOCO_FRAMEWORK_DIR . 'Core');
+define('MOCO_PREFIX', 'moco_option_');
 
 
 spl_autoload_register(

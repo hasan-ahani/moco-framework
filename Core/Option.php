@@ -118,7 +118,7 @@ class Option
 	 */
 	public function getAction()
 	{
-		return 'moco_option_' . $this->slug;
+		return MOCO_PREFIX . $this->slug;
 	}
 	
 	/**
