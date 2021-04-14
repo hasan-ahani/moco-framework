@@ -79,6 +79,9 @@ $options = $option->getOptions();
 		                            ?>
                                     <li id="moco-tab-<?php echo $subOption['id']; ?>" data-target="<?php echo $subOption['id']; ?>"  class="<?php echo $index == 0 && $subIndex == 0 ? 'active' : null;?>">
                                         <a  <?php echo isset($subOption['link']) ?  sprintf('href="%s" target="_blank"', $subOption['link'] ) : null;?>>
+                                            <span class="icon">
+                                                <i class="fa <?php echo $option['icon'] ?? 'fa-dashboard';?>"></i>
+                                            </span>
                                             <span class="name"><?php echo $subOption['title'] ?? 'undefined';?></span>
                                         </a>
                                     </li>
