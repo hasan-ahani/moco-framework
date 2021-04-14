@@ -365,7 +365,26 @@ class Option
 	{
 		if($this->hasOption()){
 			foreach ($this->options as $opKey => $option){
-				if(isset($option['controls']) && !empty($option['controls'])){
+				if(isset($option['submenu']) && !empty($option['submenu'])){
+					foreach ($option['submenu'] as $subKey =>  $subControl){
+						if(isset($subControl['controls']) && !empty($subControl['controls'])){
+							foreach ($subControl['controls'] as $key =>  $control){
+								if(isset($control['type'])){
+									if(class_exists($control['type'])){
+										/**
+										 * @var Field $class
+										 */
+										$class = new $control['type']();
+										$class->set($control);
+										$this->options[$opKey]['submenu'][$subKey]['controls'][$key]['render'] = $class;
+									}
+									
+								}
+							}
+						}
+					}
+					
+				}elseif(isset($option['controls']) && !empty($option['controls'])){
 					foreach ($option['controls'] as $key =>  $control){
 						if(isset($control['type'])){
 							if(class_exists($control['type'])){

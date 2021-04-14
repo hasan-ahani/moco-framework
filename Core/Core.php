@@ -69,7 +69,7 @@ class Core
 			wp_register_style( 'moco-framework', $this->getPath()['uri'] . 'assets/css/app.css', false, MOCO_FRAMEWORK_VER);
 		}
 		
-		wp_register_script( 'moco-framework', $this->getPath()['uri'] . 'assets/js/app.bundle.js', array('jquery'), MOCO_FRAMEWORK_VER);
+		wp_register_script( 'moco-framework', $this->getPath()['uri'] . 'assets/js/app.bundle.js', array('jquery'), MOCO_FRAMEWORK_VER, true);
 		wp_localize_script( 'moco-framework', 'moco',
 			[
 				'ajax_url' => admin_url( 'admin-ajax.php')
