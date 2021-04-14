@@ -91,6 +91,75 @@ $moco_framework->option()
 ```
 
 
+### sub menu
+To use the Moco Framework
+
+```php
+use MocoFramework\Helper\Controls;
+
+
+//use Globa Variable
+global $moco_framework;
+
+
+// set your Tabs & option Controls
+$options = [        
+    //tabs
+    [
+        'id'        => 'general',
+        'title'     => 'General',
+        'icon'      => 'fa-dashboard',
+        'submenu'    => [
+            [
+                'id'        => 'subGeneral',
+                'title'     => 'Sub General',
+                'icon'      => 'fa-dashboard',
+                'controls'    => [
+                    [
+                        'id'     => 'Text Control',
+                        'type'      => Controls::Text,
+                        'title'     => 'wordpress test',
+                        'desc'     => 'wordpress test test',
+                        'placeholder'     => 'wordpress ...',
+                        'default'     => 'wordpress ...',
+                        'detail'     => 'wordpress detail'
+                    ],
+                    [
+                        'id'        => 'js',
+                        'type'      => Controls::CodeEditor,
+                        'title'     => 'codeEditor',
+                    ],
+                    [
+        
+                        'id'        => 'wp_editor',
+                        'type'      => Controls::WpEditor,
+                        'title'     => 'Wp Editor',
+                        'default'   => 'defaul content with support html',
+                    ]
+                ]
+            ],
+        ]
+    ],
+    //external tab link ()
+    [
+        'id'        => 'external',
+        'title'     => 'External',
+        'icon'      => 'fa-external',
+        'link'      => 'https://wpdev.ir/',
+    ]
+];
+
+//make new option page 
+$moco_framework->option()
+	->setTitle('Moco Framework Options')
+	->setSubTitle('the best of options package')
+	->setMenu('Moco Options')
+	->setSlug('moco-options')
+	->setPosition(99)
+	->options($options);
+
+```
+
 ## get option value
 ```php
 global $moco_framework;
@@ -128,10 +197,10 @@ function get_moco($option, $default = false){
 - [x] Select
 - [x] Select Media
 - [x] Switch
-- [ ] Select2
+- [x] Select2
 - [ ] tag
-- [ ] Draggable
 - [ ] Color Picker
 - [ ] Date Picker
+- [ ] Draggable
 
 
